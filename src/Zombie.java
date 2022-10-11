@@ -1,7 +1,10 @@
+import EVENT.Keypress;
+
 import java.util.*;
 import java.lang.*;
 
 public class Zombie extends Health{
+   Keypress keypress;
     public Health health;
     public int strength; //metric from 1-5? Health can be calculated based off this and the attack severity based off that?
     public Zombie(int strength){
@@ -20,6 +23,7 @@ public class Zombie extends Health{
 
 
     public static void main(String[] args){
+        Keypress press = new Keypress();
         Zombie zombie = new Zombie(1); //Solely for testing, this will form the basis of the opponent zombie object
         /*while (zombie.health.health > 0){
             if (zombie.health.logHit(zombie.strength)){
