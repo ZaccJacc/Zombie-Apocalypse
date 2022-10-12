@@ -1,11 +1,17 @@
 package Render;
 
 public class Renderloop {
-    public static void Renderloop(){
+    public Renderloop(){
         System.out.println("Render loop started");
-        DisplayHandler.RenderMain();
-            while(!DisplayHandler.isCloseRequested()) {
-                DisplayHandler.RenderUpdate();
-            }
+        try {
+            new DisplayHandler();
+            DisplayHandler.RenderMain();
+        }
+        catch (Exception ignored) {
+            System.out.println("Unable to initialise window");
+        }
+        while(!DisplayHandler.isCloseRequested()) {
+            DisplayHandler.RenderUpdate();
+        }
     }
 }

@@ -54,13 +54,8 @@ public class Zombie implements Health, Hunger {
 
 
     public static void main(String[] args){
-        Renderloop.Renderloop();
-        Keypress press = new Keypress();//got some questions over the implementation of an event through an object?
-        // wouldn't the event need to be a direct attribute associated with the object that will manage it? And, by extension, would it not function incorrectly if we try and force it into another object?
-        // I say the above because I have no idea how that event actually works.
+
+        new Renderloop();
         Zombie zombie = new Zombie(1); //Solely for testing, this will form the basis of the opponent zombie object
-
-        System.out.println(zombie.health);
-
     }
 }
