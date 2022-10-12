@@ -1,6 +1,6 @@
 import EVENT.Keypress;
+import Render.Renderloop;
 
-import java.util.*;
 import java.lang.*;
 
 public class Zombie implements Health{
@@ -44,6 +44,7 @@ public class Zombie implements Health{
 
 
     public static void main(String[] args){
+        Renderloop.Renderloop();
         Keypress press = new Keypress();//got some questions over the implementation of an event through an object?
         // wouldn't the event need to be a direct attribute associated with the object that will manage it? And, by extension, would it not function incorrectly if we try and force it into another object?
         // I say the above because I have no idea how that event actually works.
