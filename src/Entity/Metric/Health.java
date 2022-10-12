@@ -1,4 +1,4 @@
-package Metric;
+package Entity.Metric;
 
 /**
  * Interface used to register and govern the default metric for keeping the entity alive. Extended by hunger,

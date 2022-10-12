@@ -1,7 +1,7 @@
 package Entity;
 
-import Metric.Health;
-import Metric.Hunger;
+import Entity.Metric.Health;
+import Entity.Metric.Hunger;
 
 public class Entity implements Health, Hunger {
     protected int health;

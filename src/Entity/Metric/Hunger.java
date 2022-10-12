@@ -1,4 +1,4 @@
-package Metric;
+package Entity.Metric;
 
 public interface Hunger extends Health {
     /* ok please don't kill me but because the hunger value directly requires to use

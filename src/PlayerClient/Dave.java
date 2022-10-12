@@ -1,7 +1,6 @@
 package PlayerClient;
 
 import Entity.Entity;
-import Metric.Health;
 
 
 public class Dave extends Entity {
