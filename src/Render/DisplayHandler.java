@@ -1,9 +1,12 @@
 package Render;
+import EVENT.Keypress;
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.nio.*;
 
 import static org.lwjgl.glfw.Callbacks.*;
@@ -13,15 +16,28 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import org.lwjgl.glfw.GLFWErrorCallback;
 
+import javax.swing.*;
+
 import static org.lwjgl.glfw.GLFW.*;
 
-public class DisplayHandler {
+public class DisplayHandler extends JFrame implements KeyListener{
     public static long window;
+
+    public DisplayHandler() throws Exception{
+        addKeyListener((KeyListener) this);
+        this.setFocusable(true);
+        if (!this.isFocusable()) {
+            throw new Exception("Render window not focusable - cannot use keylistener");
+        }
+    }
     public static void RenderMain(){
+        System.out.println("RenderMain");
         GLFWErrorCallback.createPrint(System.err).set();
         // Initialize GLFW. Most GLFW functions will not work before doing this.
+
         if ( !glfwInit() )
             throw new IllegalStateException("Unable to initialize GLFW");
+
 
         // Configure our window
         glfwDefaultWindowHints(); // optional, the current window hints are already the default
@@ -66,5 +82,20 @@ public class DisplayHandler {
             // invoked during this call.
             glfwPollEvents();
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        new Keypress().keyTyped(e);
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        new Keypress().keyPressed(e);
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        new Keypress().keyReleased(e);
     }
 }
