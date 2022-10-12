@@ -30,7 +30,7 @@ public class DisplayHandler{
 
 
         // Create the window
-        window = glfwCreateWindow(WIDTH, HEIGHT, "Zombie-Apocalypse", NULL, NULL);
+        window = glfwCreateWindow(WIDTH, HEIGHT, "PlayerClient.Zombie-Apocalypse", NULL, NULL);
         // Attach the input handler
         glfwSetKeyCallback(window, new InputHandler(window));
 

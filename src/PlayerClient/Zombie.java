@@ -1,5 +1,5 @@
-import Metric.Health;
-import Metric.Hunger;
+package PlayerClient;
+
 import Entity.Entity;
 import Render.Renderloop;
 
