@@ -1,10 +1,13 @@
 package Render;
 
+import EVENT.InputHandler;
+
 public class Renderloop {
     public Renderloop(){
         System.out.println("Render loop started");
+
         try {
-            new DisplayHandler();
+            //new DisplayHandler();
             DisplayHandler.RenderMain();
         }
         catch (Exception ignored) {

@@ -1,4 +1,4 @@
-import EVENT.Keypress;
+import EVENT.InputHandler;
 import Metric.Health;
 import Metric.Hunger;
 import Render.Renderloop;
@@ -6,7 +6,7 @@ import Render.Renderloop;
 import java.lang.*;
 
 public class Zombie implements Health, Hunger {
-    Keypress keypress;
+    InputHandler keypress;
     public int health;
     public int strength; //metric from 1-5? Metric.Health can be calculated based off this and the attack severity based off that?
     public int hunger;
