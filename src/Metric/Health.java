@@ -7,8 +7,23 @@ package Metric;
  * @see Zombie
  */
 public interface Health {
-
+    /**
+     * Returns the target metric for each category applicable to this entity.
+     * @param metric An integer to reference which of the object's metrics should be edited. Constants are implemented
+     *               through the interface Health.
+     * @return The current object's metric for the target passed as a parameter.
+     * @see Health
+     * @see #setMetric
+     */
     int getMetric(int metric);
+    /**
+     * Sets the target metric for each category applicable to this entity.
+     * @param metric An integer to reference which of the object's metrics should be edited. Constants are implemented
+     *               through the interface Health.
+     * @param value The value by which the metric should be updated.
+     * @see Health
+     * @see #getMetric
+     */
     void setMetric(int metric, int value);
 
     int HEALTH = 1;
