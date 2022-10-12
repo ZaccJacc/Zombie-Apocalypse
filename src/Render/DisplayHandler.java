@@ -32,8 +32,7 @@ public class DisplayHandler{
         // Create the window
         window = glfwCreateWindow(WIDTH, HEIGHT, "Zombie-Apocalypse", NULL, NULL);
         // Attach the input handler
-        new InputHandler(DisplayHandler.window);
-        glfwSetKeyCallback(window, new InputHandler());
+        glfwSetKeyCallback(window, new InputHandler(window));
 
         if ( window == NULL )
             throw new RuntimeException("Failed to create the GLFW window");

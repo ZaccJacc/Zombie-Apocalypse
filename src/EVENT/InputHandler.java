@@ -8,19 +8,15 @@ import org.lwjgl.system.libffi.FFICIF;
 import static org.lwjgl.glfw.GLFW.*;
 
 public class InputHandler extends Callback implements GLFWKeyCallbackI {
+    /*
+    * Consulted ben on this (he is far too hot for me not to), and he said to keep things more explicit, completely
+    * use our own InputHandler. I had previously considered doing it with an anonymous GLFWCallBack but to make
+    * things more 'modular' in ben's words, chose to do it this way, so we have full control over our callback,
+    * so we can make custom responses from the get-go. Look at us being good programmers, huh?
+    */
 
-    public InputHandler(long window) { // Constructor for use when creating an anonymous InputHandler that attaches the window and callback on this end
+    public InputHandler(long window){
         super(window);
-        glfwSetKeyCallback(window, new GLFWKeyCallback() {
-            @Override
-            public void invoke(long window, int key, int scancode, int action, int mods) {
-                System.out.println(key);
-            }
-        });
-    }
-
-    public InputHandler(){ // Constructor for use when using this as an implicit GLFW key callback of its own
-        super(DisplayHandler.window);
     }
 
     @Override
@@ -40,6 +36,6 @@ public class InputHandler extends Callback implements GLFWKeyCallbackI {
 
     @Override
     public void invoke(long window, int key, int scancode, int action, int mods) {
-
+        System.out.println(key);
     }
 }
