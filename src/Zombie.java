@@ -3,14 +3,13 @@ import EVENT.Keypress;
 import java.util.*;
 import java.lang.*;
 
-public class Zombie extends Health{
+public class Zombie implements Health{
    Keypress keypress;
-    public Health health;
+    public int health;
     public int strength; //metric from 1-5? Health can be calculated based off this and the attack severity based off that?
     public Zombie(int strength){
-        super(strength);
         this.strength = strength;
-        this.health = new Health(this.strength);
+        this.health = strength*10;
 
         /*
         *   TODO: Health metric ##
@@ -18,6 +17,23 @@ public class Zombie extends Health{
         *       A method for registering hits, and their relative damage. Could be done through an attack class
         *           -> Maybe apply in health? Or maybe have health as an attribute of a wider conflict file
         */
+    }
+
+    public int getMetric(int metric){
+        return switch (metric) {
+            case 1 -> this.health;
+            case 2 -> this.strength;
+            default -> 0;
+        };
+    }
+
+    public void setMetric(int metric, int value){
+        switch(metric){
+            case 1:
+                this.health = value;
+            case 2:
+                this.strength = value;
+        }
     }
 
 
@@ -30,7 +46,7 @@ public class Zombie extends Health{
         // I say the above because I have no idea how that event actually works.
         Zombie zombie = new Zombie(1); //Solely for testing, this will form the basis of the opponent zombie object
 
-        System.out.println(zombie.health.health);
+        System.out.println(zombie.health);
 
     }
 }

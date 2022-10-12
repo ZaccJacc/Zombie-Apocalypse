@@ -1,28 +1,28 @@
-public class Health { //ok for very long reasons, i'm going to turn this into an interface because i can and it'll work better
-    public double health;
-    private final int strength;
+public interface Health { //ok for very long reasons, i'm going to turn this into an interface because i can and it'll work better
 
-    public Health(int strength){
-        this.health = strength*10;//currently based the health off multiplying the level by 10, this is up for change
-        this.strength = strength;
-    }
+    int getMetric(int metric);
+    void setMetric(int metric, int value);
 
-    public boolean logHit(int severity){
-        if (this.health <= severity*5){ //will it die
+    int HEALTH = 1;
+    int STRENGTH = 2;
+
+
+    default boolean logHit(int severity){
+        if (this.getMetric(HEALTH) <= severity*5){ //will it die
             return true;
         }
         else {
-            this.health = this.health - severity*5; //if it aint gonna die, knock the health off and return false
+            this.setMetric(HEALTH, this.getMetric(HEALTH) - severity*5); //if it aint gonna die, knock the health off and return false
             return false;
         }
 
     }
 
-    public void raiseHealth(int healthValue){ //can be used for both eating and healing packages.
-        if ((this.health + healthValue*6)>this.strength*10){
-            this.health = this.strength*10;
+    default void raiseHealth(int healthValue){ //can be used for both eating and healing packages.
+        if ((this.getMetric(HEALTH) + healthValue*6)>this.getMetric(STRENGTH)*10){
+            this.setMetric(HEALTH, this.getMetric(STRENGTH)*10);
         } else {
-            this.health += healthValue*6;
+            this.setMetric(HEALTH, this.getMetric(HEALTH) + healthValue*6);
         }
     }
 }
