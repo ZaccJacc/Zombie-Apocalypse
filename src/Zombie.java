@@ -20,11 +20,14 @@ public class Zombie implements Health{
     }
 
     public int getMetric(int metric){
-        return switch (metric) {
-            case 1 -> this.health;
-            case 2 -> this.strength;
-            default -> 0;
-        };
+        switch (metric) {
+            case 1:
+                return this.health;
+            case 2:
+                return this.strength;
+            default:
+                return 0;
+        }
     }
 
     public void setMetric(int metric, int value){
