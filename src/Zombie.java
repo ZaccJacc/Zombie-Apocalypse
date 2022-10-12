@@ -6,7 +6,6 @@ import Render.Renderloop;
 import java.lang.*;
 
 public class Zombie implements Health, Hunger {
-    InputHandler keypress;
     public int health;
     public int strength; //metric from 1-5? Metric.Health can be calculated based off this and the attack severity based off that?
     public int hunger;
