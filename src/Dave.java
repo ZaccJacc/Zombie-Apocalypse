@@ -1,16 +1,20 @@
 public class Dave implements Health {
     int FirstName;
     int lastname;
-    public int health;
-    public Hunger hunger;
+    public int health = 100;
+    public int hunger = 100;
     int strength;
     public int x;
     public int y;
 
-    public Dave(int level) {
+    public void Dave() {
 
     }
+    public boolean canattack(){
 
+
+        return canattack();
+    }
     @Override
     public int getMetric(int metric) {
         switch (metric) {
@@ -33,5 +37,10 @@ public class Dave implements Health {
         }
     }
 
-
+    public int getX() {
+        return x;
+    }
+    public int getY(){
+        return y;
+    }
 }
