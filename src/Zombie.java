@@ -3,10 +3,11 @@ import Render.Renderloop;
 
 import java.lang.*;
 
-public class Zombie implements Health{
-   Keypress keypress;
+public class Zombie implements Health, Hunger{
+    Keypress keypress;
     public int health;
     public int strength; //metric from 1-5? Health can be calculated based off this and the attack severity based off that?
+    public int hunger;
     public Zombie(int strength){
         this.strength = strength;
         this.health = strength*10;
@@ -25,6 +26,8 @@ public class Zombie implements Health{
                 return this.health;
             case 2:
                 return this.strength;
+            case 3:
+                return this.hunger;
             default:
                 return 0;
         }
@@ -36,6 +39,8 @@ public class Zombie implements Health{
                 this.health = value;
             case 2:
                 this.strength = value;
+            case 3:
+                this.hunger = value;
         }
     }
 
