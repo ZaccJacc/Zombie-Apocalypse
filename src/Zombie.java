@@ -1,19 +1,21 @@
 import EVENT.Keypress;
+import Metric.Health;
+import Metric.Hunger;
 import Render.Renderloop;
 
 import java.lang.*;
 
-public class Zombie implements Health, Hunger{
+public class Zombie implements Health, Hunger {
     Keypress keypress;
     public int health;
-    public int strength; //metric from 1-5? Health can be calculated based off this and the attack severity based off that?
+    public int strength; //metric from 1-5? Metric.Health can be calculated based off this and the attack severity based off that?
     public int hunger;
     public Zombie(int strength){
         this.strength = strength;
         this.health = strength*10;
 
         /*
-        *   TODO: Health metric ##
+        *   TODO: Metric.Health metric ##
         *       Attack Value Metric ## Needs extension, premise is there.
         *       A method for registering hits, and their relative damage. Could be done through an attack class
         *           -> Maybe apply in health? Or maybe have health as an attribute of a wider conflict file

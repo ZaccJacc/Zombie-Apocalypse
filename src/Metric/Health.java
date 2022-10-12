@@ -1,3 +1,5 @@
+package Metric;
+
 public interface Health { //ok for very long reasons, i'm going to turn this into an interface because i can and it'll work better
 
     int getMetric(int metric);
