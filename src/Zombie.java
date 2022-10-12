@@ -10,6 +10,7 @@ public class Zombie implements Health, Hunger {
     public int health;
     public int strength; //metric from 1-5? Metric.Health can be calculated based off this and the attack severity based off that?
     public int hunger;
+
     public Zombie(int strength){
         this.strength = strength;
         this.health = strength*10;
@@ -22,6 +23,7 @@ public class Zombie implements Health, Hunger {
         */
     }
 
+    @Override
     public int getMetric(int metric){
         switch (metric) {
             case 1:
@@ -35,6 +37,7 @@ public class Zombie implements Health, Hunger {
         }
     }
 
+    @Override
     public void setMetric(int metric, int value){
         switch(metric){
             case 1:
