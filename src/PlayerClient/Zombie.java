@@ -1,7 +1,7 @@
 package PlayerClient;
 
 import Entity.Entity;
-import Render.Renderloop;
+import Render.RenderLoop;
 
 import java.lang.*;
 
@@ -20,8 +20,6 @@ public class Zombie extends Entity {
 
 
     public static void main(String[] args){
-
-        new Renderloop();
         Zombie zombie = new Zombie(); //Solely for testing, this will form the basis of the opponent zombie object
     }
 }

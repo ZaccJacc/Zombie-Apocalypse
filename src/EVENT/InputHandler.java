@@ -8,6 +8,10 @@ import org.lwjgl.system.libffi.FFICIF;
 import static org.lwjgl.glfw.GLFW.*;
 
 public class InputHandler extends Callback implements GLFWKeyCallbackI {
+
+    private final int PRESSED = 1; // For the int action states on a GLFwKeyCallbackI invoke
+    private final int RELEASED = 0;
+
     /*
     * Consulted ben on this (he is far too hot for me not to), and he said to keep things more explicit, completely
     * use our own InputHandler. I had previously considered doing it with an anonymous GLFWCallBack but to make
@@ -36,6 +40,6 @@ public class InputHandler extends Callback implements GLFWKeyCallbackI {
 
     @Override
     public void invoke(long window, int key, int scancode, int action, int mods) {
-        System.out.println(key);
+        System.out.println(glfwGetKeyName(key, scancode));
     }
 }

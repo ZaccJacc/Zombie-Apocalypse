@@ -2,6 +2,7 @@ package Render;
 import EVENT.InputHandler;
 import org.lwjgl.opengl.*;
 
+import static Main.App.logger;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.glfw.GLFW.glfwSetKeyCallback;
 import static org.lwjgl.opengl.GL11.*;
@@ -12,7 +13,6 @@ public class DisplayHandler{
     public static long window;
 
     public static void RenderMain(){
-        System.out.println("RenderMain");
         GLFWErrorCallback.createPrint(System.err).set();
         // Initialize GLFW. Most GLFW functions will not work before doing this.
 
@@ -20,11 +20,12 @@ public class DisplayHandler{
             throw new IllegalStateException("Unable to initialize GLFW");
 
 
+
+
         // Configure our window
         glfwDefaultWindowHints(); // optional, the current window hints are already the default
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the window will stay hidden after creation
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
-        System.out.println("e");
         int WIDTH = 300;
         int HEIGHT = 300;
 
