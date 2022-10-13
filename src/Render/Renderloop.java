@@ -7,7 +7,6 @@ public class Renderloop {
         System.out.println("Render loop started");
 
         try {
-            //new DisplayHandler();
             DisplayHandler.RenderMain();
         }
         catch (Exception ignored) {

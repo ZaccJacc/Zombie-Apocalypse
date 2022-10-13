@@ -1,5 +1,7 @@
 package Entity.Metric;
 
+import PlayerClient.Zombie;
+
 /**
  * Interface used to register and govern the default metric for keeping the entity alive. Extended by hunger,
  * implemented by all entities and resources that can manipulate health.
