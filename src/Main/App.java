@@ -24,6 +24,7 @@ public class App {
         }
         logger.info("Attempting to initialise rendering...");
         new RenderLoop();
+
     }
 }
 
