@@ -28,8 +28,9 @@ public class DisplayHandler {
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the window will stay hidden after creation
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
         System.out.println("e");
-        int WIDTH = 300;
-        int HEIGHT = 300;
+
+        int WIDTH = 1280;
+        int HEIGHT = 720;
 
 
         // Create the window
@@ -43,6 +44,7 @@ public class DisplayHandler {
         glfwSwapInterval(1);
 
 
+
     }
     public static boolean isCloseRequested(){
         return glfwWindowShouldClose(window);
@@ -51,6 +53,7 @@ public class DisplayHandler {
         // clear the framebuffer
 
         GL.createCapabilities();
+
 
         // Set the clear color
         glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
@@ -66,5 +69,9 @@ public class DisplayHandler {
             // invoked during this call.
             glfwPollEvents();
         }
+    }
+
+    public static long getWindow() {
+        return window;
     }
 }

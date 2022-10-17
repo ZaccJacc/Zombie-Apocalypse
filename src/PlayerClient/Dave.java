@@ -15,8 +15,6 @@ public class Dave implements Health {
 
     }
     public boolean canattack(){
-
-
         return canattack();
     }
     @Override
