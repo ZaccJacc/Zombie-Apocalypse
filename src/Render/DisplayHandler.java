@@ -65,12 +65,7 @@ public class DisplayHandler{
         while ( !glfwWindowShouldClose(window) ) {
 
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
-
-            GL11.glBegin(GL_LINES);
-            GL11.glColor3f(0.0f, 1.0f, 0.0f);
-            GL11.glVertex2f(100, 100);
-            GL11.glVertex2f(400, 400);
-            GL11.glEnd();
+            Renderer.Renderer();
             glfwSwapBuffers(window); // swap the color buffers
 
             // Poll for window events. The key callback above will only be
