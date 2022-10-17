@@ -19,7 +19,7 @@ public class Zombie extends Entity {
     }
 
 
-    public static void main(String[] args){
+    public static void main(){
         Zombie zombie = new Zombie(); //Solely for testing, this will form the basis of the opponent zombie object
     }
 }

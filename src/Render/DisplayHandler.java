@@ -26,8 +26,8 @@ public class DisplayHandler{
         glfwDefaultWindowHints(); // optional, the current window hints are already the default
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the window will stay hidden after creation
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
-        int WIDTH = 300;
-        int HEIGHT = 300;
+        int WIDTH = 1280;
+        int HEIGHT = 720;
 
 
         // Create the window
@@ -47,19 +47,30 @@ public class DisplayHandler{
     public static boolean isCloseRequested(){
         return glfwWindowShouldClose(window);
     }
+
     public static void RenderUpdate(){
         // clear the framebuffer
 
         GL.createCapabilities();
-
+        //set up display system
+        GL11.glMatrixMode(GL_PROJECTION);
+        GL11.glLoadIdentity();
+        GL11.glOrtho(0, 1280, 720, 0, 1, -1);
+        GL11.glMatrixMode(GL_MODELVIEW);
         // Set the clear color
-        glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+
 
         // Run the rendering loop until the user has attempted to close
         // the window or has pressed the ESCAPE key.
         while ( !glfwWindowShouldClose(window) ) {
+
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
 
+            GL11.glBegin(GL_LINES);
+            GL11.glColor3f(0.0f, 1.0f, 0.0f);
+            GL11.glVertex2f(100, 100);
+            GL11.glVertex2f(400, 400);
+            GL11.glEnd();
             glfwSwapBuffers(window); // swap the color buffers
 
             // Poll for window events. The key callback above will only be
