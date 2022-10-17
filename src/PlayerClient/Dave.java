@@ -1,43 +1,28 @@
 package PlayerClient;
 
-import Metric.Health;
+import Entity.Entity;
 
-public class Dave implements Health {
+
+public class Dave extends Entity {
     int FirstName;
     int lastname;
-    public int health = 100;
-    public int hunger = 100;
-    int strength;
     public int x;
     public int y;
 
-    public void Dave() {
-
+    public Dave(int health, int strength, int hunger){
+        super(health, strength, hunger);
     }
+
+    public Dave(){
+        super();
+    }
+
     public boolean canattack(){
-        return canattack();
-    }
-    @Override
-    public int getMetric(int metric) {
-        switch (metric) {
-            case 1:
-                return this.health;
-            case 2:
-                return this.strength;
-            default:
-                return 0;
-        }
+
+
+        return false;
     }
 
-    @Override
-    public void setMetric(int metric, int value) {
-        switch(metric){
-            case 1:
-                this.health = value;
-            case 2:
-                this.strength = value;
-        }
-    }
 
     public int getX() {
         return x;

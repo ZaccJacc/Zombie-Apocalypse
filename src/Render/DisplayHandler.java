@@ -1,40 +1,39 @@
 package Render;
-import org.lwjgl.*;
-import org.lwjgl.glfw.*;
+import EVENT.InputHandler;
 import org.lwjgl.opengl.*;
-import org.lwjgl.system.*;
 
-import java.nio.*;
-
-import static org.lwjgl.glfw.Callbacks.*;
+import static Main.App.logger;
 import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.glfw.GLFW.glfwSetKeyCallback;
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import org.lwjgl.glfw.GLFWErrorCallback;
 
-import static org.lwjgl.glfw.GLFW.*;
-
-public class DisplayHandler {
+public class DisplayHandler{
     public static long window;
+
     public static void RenderMain(){
         GLFWErrorCallback.createPrint(System.err).set();
         // Initialize GLFW. Most GLFW functions will not work before doing this.
+
         if ( !glfwInit() )
             throw new IllegalStateException("Unable to initialize GLFW");
+
+
+
 
         // Configure our window
         glfwDefaultWindowHints(); // optional, the current window hints are already the default
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the window will stay hidden after creation
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
-        System.out.println("e");
-
-        int WIDTH = 1280;
-        int HEIGHT = 720;
+        int WIDTH = 300;
+        int HEIGHT = 300;
 
 
         // Create the window
-        window = glfwCreateWindow(WIDTH, HEIGHT, "Zombie-Apocalypse", NULL, NULL);
+        window = glfwCreateWindow(WIDTH, HEIGHT, "PlayerClient.Zombie-Apocalypse", NULL, NULL);
+        // Attach the input handler
+        glfwSetKeyCallback(window, new InputHandler(window));
 
         if ( window == NULL )
             throw new RuntimeException("Failed to create the GLFW window");
@@ -42,7 +41,6 @@ public class DisplayHandler {
         glfwShowWindow(window);
         glfwMakeContextCurrent(window);
         glfwSwapInterval(1);
-
 
 
     }
@@ -53,7 +51,6 @@ public class DisplayHandler {
         // clear the framebuffer
 
         GL.createCapabilities();
-
 
         // Set the clear color
         glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
@@ -69,9 +66,5 @@ public class DisplayHandler {
             // invoked during this call.
             glfwPollEvents();
         }
-    }
-
-    public static long getWindow() {
-        return window;
     }
 }
