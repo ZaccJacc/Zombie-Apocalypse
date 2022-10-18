@@ -12,7 +12,7 @@ import java.io.InputStream;
 public class Renderer {
 public static int i = 0;
 public static boolean y = false;
-    public static void Renderer() {
+    public static void Render() {
 
         GL11.glBegin(GL11.GL_LINES);
         GL11.glColor3f(0.4f, 0.0f, 0.4f);
@@ -23,8 +23,8 @@ public static boolean y = false;
         GL11.glColor3f(0.4f, 0.0f, 0.4f);
         GL11.glVertex2f(1180,100);
         GL11.glVertex2f(1080, 400+ i);
-        System.out.println(i);
-        if(y == false){
+        //System.out.println(i);
+        if(!y){
             i++;
         }else{
             i--;

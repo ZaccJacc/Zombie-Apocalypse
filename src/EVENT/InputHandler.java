@@ -5,19 +5,13 @@ import org.lwjgl.glfw.GLFWKeyCallbackI;
 import org.lwjgl.system.Callback;
 import org.lwjgl.system.libffi.FFICIF;
 
+import static Main.App.logger;
 import static org.lwjgl.glfw.GLFW.*;
 
 public class InputHandler extends Callback implements GLFWKeyCallbackI {
 
     private final int PRESSED = 1; // For the int action states on a GLFwKeyCallbackI invoke
     private final int RELEASED = 0;
-
-    /*
-    * Consulted ben on this (he is far too hot for me not to), and he said to keep things more explicit, completely
-    * use our own InputHandler. I had previously considered doing it with an anonymous GLFWCallBack but to make
-    * things more 'modular' in ben's words, chose to do it this way, so we have full control over our callback,
-    * so we can make custom responses from the get-go. Look at us being good programmers, huh?
-    */
 
     public InputHandler(long window){
         super(window);
@@ -41,5 +35,22 @@ public class InputHandler extends Callback implements GLFWKeyCallbackI {
     @Override
     public void invoke(long window, int key, int scancode, int action, int mods) {
         System.out.println(glfwGetKeyName(key, scancode));
+        try {
+            if (action==PRESSED) {
+                switch (glfwGetKeyName(key, scancode).toLowerCase()) {
+                    case "w":
+                        System.out.println("Forwards motion triggered");
+                        // Do some code
+                        // Replicate for the other movement keys and controls? idfk.
+                }
+            } // put this if thing in so the movement is only triggered when the key is pressed, the release trigger
+              // should call something to stop the movement... probably easiest.
+            else {
+                System.out.println("Movement stop requested");
+                // This SHOULD NOT be to stop all movement, it still needs to be dependent on the key released.
+            }
+        } catch (Exception e){
+            logger.warning("Unable to reference key from code and scan: "+key+"|"+scancode);
+        }
     }
 }
